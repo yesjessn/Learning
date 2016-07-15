@@ -10,8 +10,6 @@ import android.graphics.Canvas;
 public class Player extends GameObject{
     private Bitmap spritesheet;
     private int score;
-    //acceleration up or down
-    private double dya;
     private boolean up;
     private boolean playing;
     private Animation animation = new Animation();
@@ -55,11 +53,11 @@ public class Player extends GameObject{
 
         //if touching screen, accelerate up
         if(up){
-            dy = (int)(dya -= 1.1);
+            dy -= 1;
 
         }
         else{
-            dy = (int)(dya += 1.1);
+            dy += 1;
         }
 
         //cap speed
@@ -67,7 +65,7 @@ public class Player extends GameObject{
         if(dy<-14)dy = -14;
 
         y += dy*2;
-        dy = 0;
+
     }
 
     public void draw(Canvas canvas)
@@ -77,6 +75,6 @@ public class Player extends GameObject{
     public int getScore(){return score;}
     public boolean getPlaying(){return playing;}
     public void setPlaying(boolean b){playing = b;}
-    public void resetDYA(){dya = 0;}
+    public void resetDY(){dy = 0;}
     public void resetScore(){score = 0;}
 }

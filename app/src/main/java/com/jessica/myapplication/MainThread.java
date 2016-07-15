@@ -21,6 +21,7 @@ public class MainThread extends Thread
         this.surfaceHolder = surfaceHolder;
         this.gamePanel = gamePanel;
     }
+    //caps framerate at 30
     @Override
     public void run()
     {
